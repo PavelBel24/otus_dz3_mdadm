@@ -1,0 +1,786 @@
+Script started on 2024-02-11 15:34:57+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="183" LINES="40"]
+[?2004h]0;admuser@vm1: ~/otus-dz3[01;32madmuser@vm1[00m:[01;34m~/otus-dz3[00m$ exitvagrant ssh
+[?2004lLast login: Sun Feb 11 12:34:21 2024 from 10.0.2.2
+]0;vagrant@otuslinux:~[?1034h[vagrant@otuslinux ~]$ sudo fdisk -l | grep -i disk
+[01;31m[KDisk[m[K /dev/sda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+[01;31m[KDisk[m[K label type: dos
+[01;31m[KDisk[m[K identifier: 0x0009ef1a
+[01;31m[KDisk[m[K /dev/sdb: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdc: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdd: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sde: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdf: 52 MB, 52428800 bytes, 102400 sectors
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo lshw -short | grep disk
+DMI   SMP   PA-RISC       device-tree           SPD   memory      /proc/cpuinfo             CPUID     PCI (sysfs)           ISA PnP       PnP (sysfs)           PCMCIA      PCMCIA      Virtual I/O (VIRTIO) devices                            IBM Virtual I/O (VIO)                     kernel device tree (sysfs)                          USB   IDE   SCSI    S/390 devices             Network interfaces                  Framebuffer devices                   Display       CPUFreq       ABI   /0/100/1.1/0.0.0    /dev/sda   [01;31m[Kdisk[m[K        42GB VBOX HARDDISK
+/0/100/d/0          /dev/sdb   [01;31m[Kdisk[m[K        52MB VBOX HARDDISK
+/0/100/d/1          /dev/sdc   [01;31m[Kdisk[m[K        52MB VBOX HARDDISK
+/0/100/d/2          /dev/sdd   [01;31m[Kdisk[m[K        52MB VBOX HARDDISK
+/0/100/d/3          /dev/sde   [01;31m[Kdisk[m[K        52MB VBOX HARDDISK
+/0/100/d/0.0.0      /dev/sdf   [01;31m[Kdisk[m[K        52MB VBOX HARDDISK
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ - сломать/починить raid;[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[vagrant@otuslinux ~]$ [K[vagrant@otuslinux ~]$ ь[Kmdadm --zero-superblock --force /dev/sd{b,c,d,e,f }
+mdadm: must be super-user to perform this action
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csmdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cumdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdmdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Comdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+mdadm: Unrecognised md component device - /dev/sdb
+mdadm: Unrecognised md component device - /dev/sdc
+mdadm: Unrecognised md component device - /dev/sdd
+mdadm: Unrecognised md component device - /dev/sde
+mdadm: Unrecognised md component device - /dev/sdf
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ [K[vagrant@otuslinux ~]$ mdadmsmdadmumdadmdmdadmomdadm mdadm[C[C[C[C[C -create [C[1@-[C[C[C[C[C[C[C[C--vr[Kerbouse [C[1@c[1P[1@s[1P[C[C/dev/md0 -l 10 n 5 /dev/sd{b,c,d,e,f}^C
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}
+mdadm: Unrecognised md component device - /dev/sdb
+mdadm: Unrecognised md component device - /dev/sdc
+mdadm: Unrecognised md component device - /dev/sdd
+mdadm: Unrecognised md component device - /dev/sde
+mdadm: Unrecognised md component device - /dev/sdf
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --zero-superblock --force /dev/sd{b,c,d,e,f}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ksudo mdadm --create --verbouse /dev/md0 -l 10 n 5 /dev/sd{b,c,d,e,f}
+mdadm: unrecognized option '--verbouse'
+Usage: mdadm --help
+  for help
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbouse /dev/md0 -l 10 n 5 /dev/sd{b,c,d,e,f}[1P
+mdadm: no raid-devices specified.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 -l 10 n 5 /dev/sd{b,c,d,e,f}[1P /dev/sd{b,c,d,e,f}4 /dev/sd{b,c,d,e,f}
+mdadm: no raid-devices specified.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 -l 10 n 4 /dev/sd{b,c,d,e,f}[C[C[C[1P[C[1P[C[C[C[C[1@ 
+mdadm: no raid-devices specified.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 -l 1 n 4 /dev/sd{b,c,d,e,f}[C[C[1P[C[C[C[1P
+mdadm: no raid-devices specified.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 -l1 n4 /dev/sd{b,c,d,e,f}[C[1@-[C[C[1@e[1@v[1@e[1@l[1@ [1P[1@=[C[C[1@-[1@-[1@r[1@a[1@i[1@d[1@-[1@d[1@e[1@v[1@i[1@c[1@e[1@s[1@-[1P[1@=[1P
+mdadm: You have listed more devices (5) than are in the array(4)!
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=4 /dev/sd{b,c,d,e,f}[C[C[1P /dev/sd{b,c,d,e,f}5 /dev/sd{b,c,d,e,f}
+mdadm: Note: this array has metadata at the start and
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
+mdadm: size set to 50176K
+Continue creating array? n
+mdadm: create aborted.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=5 /dev/sd{b,c,d,e,f}[C[1@0
+mdadm: layout defaults to n2
+mdadm: layout defaults to n2
+mdadm: chunk size defaults to 512K
+mdadm: size set to 49152K
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mdadm --help
+mdadm is used for building, managing, and monitoring
+Linux md devices (aka RAID arrays)
+Usage: mdadm --create device options...
+            Create a new array from unused devices.
+       mdadm --assemble device options...
+            Assemble a previously created array.
+       mdadm --build device options...
+            Create or assemble an array without metadata.
+       mdadm --manage device options...
+            make changes to an existing array.
+       mdadm --misc options... devices
+            report on or modify various md related devices.
+       mdadm --grow options device
+            resize/reshape an active array
+       mdadm --incremental device
+            add/remove a device to/from an array as appropriate
+       mdadm --monitor options...
+            Monitor one or more array for significant changes.
+       mdadm device options...
+            Shorthand for --manage.
+Any parameter that does not start with '-' is treated as a device name
+or, for --examine-bitmap, a file name.
+The first such name is often the name of an md device.  Subsequent
+names are often names of component devices.
+
+ For detailed help on the above major modes use --help after the mode
+ e.g.
+         mdadm --assemble --help
+ For general help on options use
+         mdadm --help-options
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mdadm --help[K[K[K[Kmanage --help
+Usage: mdadm arraydevice options component devices...
+
+This usage is for managing the component devices within an array.
+The --manage option is not needed and is assumed if the first argument
+is a device name or a management option.
+The first device listed will be taken to be an md array device, any
+subsequent devices are (potential) components of that array.
+
+Options that are valid with management mode are:
+  --add         -a   : hotadd subsequent devices to the array
+  --re-add           : subsequent devices are re-added if there were
+                     : recent members of the array
+  --remove      -r   : remove subsequent devices, which must not be active
+  --fail        -f   : mark subsequent devices a faulty
+  --set-faulty       : same as --fail
+  --replace          : mark device(s) to be replaced by spares.  Once
+                     : replacement completes, device will be marked faulty
+  --with             : Indicate which spare a previous '--replace' should
+                     : prefer to use
+  --run         -R   : start a partially built array
+  --stop        -S   : deactivate array, releasing all resources
+  --readonly    -o   : mark array as readonly
+  --readwrite   -w   : mark array as readwrite
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mdadm --detail /dev/md2[K0[1@s[1@u[1@d[1@o[1@ 
+/dev/md0:
+           Version : 1.2
+     Creation Time : Sun Feb 11 13:04:28 2024
+        Raid Level : raid10
+        Array Size : 122880 (120.00 MiB 125.83 MB)
+     Used Dev Size : 49152 (48.00 MiB 50.33 MB)
+      Raid Devices : 5
+     Total Devices : 5
+       Persistence : Superblock is persistent
+
+       Update Time : Sun Feb 11 13:04:30 2024
+             State : clean 
+    Active Devices : 5
+   Working Devices : 5
+    Failed Devices : 0
+     Spare Devices : 0
+
+            Layout : near=2
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 6e12da5c:d063f7f1:b98f197b:c399476e
+            Events : 17
+
+    Number   Major   Minor   RaidDevice State
+       0       8       16        0      active sync   /dev/sdb
+       1       8       32        1      active sync   /dev/sdc
+       2       8       48        2      active sync   /dev/sdd
+       3       8       64        3      active sync   /dev/sde
+       4       8       80        4      active sync   /dev/sdf
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mdadm --detail /dev/md0[C[1P[1@D[1P[1P[1P[1P[1P[1P /dev/md0
+/dev/md0:
+           Version : 1.2
+     Creation Time : Sun Feb 11 13:04:28 2024
+        Raid Level : raid10
+        Array Size : 122880 (120.00 MiB 125.83 MB)
+     Used Dev Size : 49152 (48.00 MiB 50.33 MB)
+      Raid Devices : 5
+     Total Devices : 5
+       Persistence : Superblock is persistent
+
+       Update Time : Sun Feb 11 13:04:30 2024
+             State : clean 
+    Active Devices : 5
+   Working Devices : 5
+    Failed Devices : 0
+     Spare Devices : 0
+
+            Layout : near=2
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 6e12da5c:d063f7f1:b98f197b:c399476e
+            Events : 17
+
+    Number   Major   Minor   RaidDevice State
+       0       8       16        0      active sync   /dev/sdb
+       1       8       32        1      active sync   /dev/sdc
+       2       8       48        2      active sync   /dev/sdd
+       3       8       64        3      active sync   /dev/sde
+       4       8       80        4      active sync   /dev/sdf
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cat /etc/[K[K[K[Kproc/ms[Kdstat
+Personalities : [raid10] 
+md0 : active raid10 sdf[4] sde[3] sdd[2] sdc[1] sdb[0]
+      122880 blocks super 1.2 512K chunks 2 near-copies [5/5] [UUUUU]
+      
+unused devices: <none>
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cat /proc/mdstatsudo mdadm -D /dev/md0[6@-detail[C[C[C[C[C[C[C[C[C[C-/dev/md0-/dev/md0ы/dev/md0с/dev/md0ф/dev/md0т/dev/md0 /dev/md0[1P/dev/md0[1P/dev/md0[1P/dev/md0[1P/dev/md0[1P/dev/md0s/dev/md0c/dev/md0a/dev/md0n/dev/md0 /dev/md0-/dev/md0-/dev/md0v/dev/md0e/dev/md0r/dev/md0b/dev/md0o/dev/md0s/dev/md0e/dev/md0 /dev/md0
+ARRAY /dev/md0 level=raid10 num-devices=5 metadata=1.2 name=otuslinux:0 UUID=6e12da5c:d063f7f1:b98f197b:c399476e
+   devices=/dev/sdb,/dev/sdc,/dev/sdd,/dev/sde,/dev/sdf
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ echo "DEVICE partitions" > /etc/mdadm/mdadm.conf
+-bash: /etc/mdadm/mdadm.conf: No such file or directory
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cd[K[Kls /etc/ | grep mdadm
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /etc/ | grep mdadm[C[C[1P[1P[1P[1P[1P[1P mdadm[1Pmdadm[1Pdadm[1Padm[1Pdm[1Pm[K
+adjtime                  [0m[38;5;27mcron.hourly[0m              exports      hostname       libuser.conf    networks           printcap          rpc            [38;5;27mssh[0m                 [38;5;27mtuned[0m
+aliases                  [38;5;27mcron.monthly[0m             [38;5;27mexports.d[0m    hosts          locale.conf     nfs.conf           profile           [38;5;27mrpm[0m            [38;5;27mssl[0m                 [38;5;27mudev[0m
+aliases.db               crontab                  filesystems  hosts.allow    [38;5;51mlocaltime[0m       nfsmount.conf      [38;5;27mprofile.d[0m         rsyncd.conf    statetab            vconsole.conf
+[38;5;27malternatives[0m             [38;5;27mcron.weekly[0m              [38;5;27mfirewalld[0m    hosts.deny     login.defs      nsswitch.conf      protocols         rsyslog.conf   [38;5;27mstatetab.d[0m          virc
+anacrontab               crypttab                 fstab        idmapd.conf    logrotate.conf  nsswitch.conf.bak  [38;5;27mpython[0m            [38;5;27mrsyslog.d[0m      subgid              [38;5;27mvmware-tools[0m
+[38;5;27maudisp[0m                   csh.cshrc                fuse.conf    [38;5;51minit.d[0m         [38;5;27mlogrotate.d[0m     [38;5;27mopenldap[0m           [38;5;27mqemu-ga[0m           rwtab          subuid              [38;5;27mwpa_supplicant[0m
+[38;5;27maudit[0m                    csh.login                [38;5;27mgcrypt[0m       inittab        machine-id      [38;5;27mopt[0m                [38;5;51mrc0.d[0m             [38;5;27mrwtab.d[0m        sudo.conf           [38;5;27mX11[0m
+[38;5;27mbash_completion.d[0m        [38;5;27mdbus-1[0m                   [38;5;27mgnupg[0m        inputrc        magic           [38;5;51mos-release[0m         [38;5;51mrc1.d[0m             [38;5;27msamba[0m          sudoers             [38;5;27mxdg[0m
+bashrc                   [38;5;27mdefault[0m                  GREP_COLORS  [38;5;27miproute2[0m       mail.rc         [38;5;27mpam.d[0m              [38;5;51mrc2.d[0m             [38;5;27msasl2[0m          [38;5;27msudoers.d[0m           [38;5;27mxinetd.d[0m
+[38;5;27mbinfmt.d[0m                 [38;5;27mdepmod.d[0m                 [38;5;27mgroff[0m        issue          man_db.conf     passwd             [38;5;51mrc3.d[0m             securetty      sudo-ldap.conf      [38;5;27myum[0m
+centos-release           [38;5;27mdhcp[0m                     group        issue.net      mke2fs.conf     passwd-            [38;5;51mrc4.d[0m             [38;5;27msecurity[0m       [38;5;27msysconfig[0m           yum.conf
+centos-release-upstream  DIR_COLORS               group-       krb5.conf      [38;5;27mmodprobe.d[0m      [38;5;27mpkcs11[0m             [38;5;51mrc5.d[0m             [38;5;27mselinux[0m        sysctl.conf         [38;5;27myum.repos.d[0m
+[38;5;27mchkconfig.d[0m              DIR_COLORS.256color      [48;5;232;38;5;9mgrub2.cfg[0m    [38;5;27mkrb5.conf.d[0m    [38;5;27mmodules-load.d[0m  [38;5;27mpki[0m                [38;5;51mrc6.d[0m             services       [38;5;27msysctl.d[0m
+chrony.conf              DIR_COLORS.lightbgcolor  [38;5;27mgrub.d[0m       ld.so.cache    motd            [38;5;27mpm[0m                 [38;5;27mrc.d[0m              sestatus.conf  [38;5;27msystemd[0m
+chrony.keys              dracut.conf              gshadow      ld.so.conf     [38;5;51mmtab[0m            [38;5;27mpolkit-1[0m           [38;5;51mrc.local[0m          shadow         [38;5;51msystem-release[0m
+[38;5;27mcifs-utils[0m               [38;5;27mdracut.conf.d[0m            gshadow-     [38;5;27mld.so.conf.d[0m   my.cnf          [38;5;27mpopt.d[0m             [38;5;51mredhat-release[0m    shadow-        system-release-cpe
+[38;5;27mcron.d[0m                   e2fsck.conf              [38;5;27mgss[0m          libaudit.conf  [38;5;27mmy.cnf.d[0m        [38;5;27mpostfix[0m            request-key.conf  shells         tcsd.conf
+[38;5;27mcron.daily[0m               environment              [38;5;27mgssproxy[0m     [38;5;27mlibnl[0m          netconfig       [38;5;27mppp[0m                [38;5;27mrequest-key.d[0m     [38;5;27mskel[0m           [38;5;27mterminfo[0m
+cron.deny                ethertypes               host.conf    [38;5;27mlibreport[0m      [38;5;27mNetworkManager[0m  [38;5;27mprelink.conf.d[0m     resolv.conf       [38;5;27msmartmontools[0m  [38;5;27mtmpfiles.d[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /etc/ [1@-[1@l[1@a[1@ 
+total 1076
+drwxr-xr-x. 80 root root     8192 Feb 11 11:50 [0m[38;5;27m.[0m
+dr-xr-xr-x. 18 root root      255 Feb 11 11:48 [38;5;27m..[0m
+-rw-r--r--.  1 root root       16 Apr 30  2020 adjtime
+-rw-r--r--.  1 root root     1529 Apr  1  2020 aliases
+-rw-r--r--.  1 root root    12288 Feb 11 11:47 aliases.db
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 [38;5;27malternatives[0m
+-rw-------.  1 root root      541 Aug  8  2019 anacrontab
+drwxr-x---.  3 root root       43 Apr 30  2020 [38;5;27maudisp[0m
+drwxr-x---.  3 root root       83 Feb 11 11:47 [38;5;27maudit[0m
+drwxr-xr-x.  2 root root       68 Apr 30  2020 [38;5;27mbash_completion.d[0m
+-rw-r--r--.  1 root root     2853 Apr  1  2020 bashrc
+drwxr-xr-x.  2 root root        6 Apr  7  2020 [38;5;27mbinfmt.d[0m
+-rw-r--r--.  1 root root       37 Apr  7  2020 centos-release
+-rw-r--r--.  1 root root       51 Apr  7  2020 centos-release-upstream
+drwxr-xr-x.  2 root root        6 Aug  4  2017 [38;5;27mchkconfig.d[0m
+-rw-r--r--.  1 root root     1108 Aug  8  2019 chrony.conf
+-rw-r-----.  1 root chrony    481 Aug  8  2019 chrony.keys
+drwxr-xr-x.  2 root root       26 Apr 30  2020 [38;5;27mcifs-utils[0m
+drwxr-xr-x.  2 root root       39 Feb 11 11:50 [38;5;27mcron.d[0m
+drwxr-xr-x.  2 root root       42 Apr 30  2020 [38;5;27mcron.daily[0m
+-rw-------.  1 root root        0 Aug  8  2019 cron.deny
+drwxr-xr-x.  2 root root       22 Jun  9  2014 [38;5;27mcron.hourly[0m
+drwxr-xr-x.  2 root root        6 Jun  9  2014 [38;5;27mcron.monthly[0m
+-rw-r--r--.  1 root root      451 Jun  9  2014 crontab
+drwxr-xr-x.  2 root root        6 Jun  9  2014 [38;5;27mcron.weekly[0m
+-rw-------.  1 root root        0 Apr 30  2020 crypttab
+-rw-r--r--.  1 root root     1620 Apr  1  2020 csh.cshrc
+-rw-r--r--.  1 root root     1103 Apr  1  2020 csh.login
+drwxr-xr-x.  4 root root       78 Apr 30  2020 [38;5;27mdbus-1[0m
+drwxr-xr-x.  2 root root       44 Apr 30  2020 [38;5;27mdefault[0m
+drwxr-xr-x.  2 root root       23 Apr 30  2020 [38;5;27mdepmod.d[0m
+drwxr-x---.  4 root root       53 Apr 30  2020 [38;5;27mdhcp[0m
+-rw-r--r--.  1 root root     5090 Aug  6  2019 DIR_COLORS
+-rw-r--r--.  1 root root     5725 Aug  6  2019 DIR_COLORS.256color
+-rw-r--r--.  1 root root     4669 Aug  6  2019 DIR_COLORS.lightbgcolor
+-rw-r--r--.  1 root root     1285 Apr  1  2020 dracut.conf
+drwxr-xr-x.  2 root root       88 Apr 30  2020 [38;5;27mdracut.conf.d[0m
+-rw-r--r--.  1 root root      112 Nov 27  2019 e2fsck.conf
+-rw-r--r--.  1 root root        0 Apr  1  2020 environment
+-rw-r--r--.  1 root root     1317 Apr 11  2018 ethertypes
+-rw-r--r--.  1 root root        0 Jun  7  2013 exports
+drwxr-xr-x.  2 root root        6 Apr  1  2020 [38;5;27mexports.d[0m
+-rw-r--r--.  1 root root       70 Apr  1  2020 filesystems
+drwxr-x---.  7 root root      133 Apr 30  2020 [38;5;27mfirewalld[0m
+-rw-r--r--.  1 root root      450 Feb 11 11:48 fstab
+-rw-r--r--.  1 root root       38 Oct 30  2018 fuse.conf
+drwxr-xr-x.  2 root root        6 Aug  2  2017 [38;5;27mgcrypt[0m
+drwxr-xr-x.  2 root root        6 Jul 13  2018 [38;5;27mgnupg[0m
+-rw-r--r--.  1 root root       94 Mar 24  2017 GREP_COLORS
+drwxr-xr-x.  4 root root       40 Apr 30  2020 [38;5;27mgroff[0m
+-rw-r--r--.  1 root root      543 Apr 30  2020 group
+-rw-r--r--.  1 root root      536 Apr 30  2020 group-
+lrwxrwxrwx.  1 root root       22 Apr 30  2020 [48;5;232;38;5;9mgrub2.cfg[0m -> [05;48;5;232;38;5;15m../boot/grub2/grub.cfg[0m
+drwx------.  2 root root      182 Apr 30  2020 [38;5;27mgrub.d[0m
+----------.  1 root root      433 Apr 30  2020 gshadow
+----------.  1 root root      426 Apr 30  2020 gshadow-
+drwxr-xr-x.  3 root root       20 Apr 30  2020 [38;5;27mgss[0m
+drwxr-xr-x.  2 root root       79 Apr 30  2020 [38;5;27mgssproxy[0m
+-rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+-rw-r--r--.  1 root root       10 Feb 11 11:47 hostname
+-rw-r--r--.  1 root root      188 Feb 11 11:48 hosts
+-rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+-rw-r--r--.  1 root root     4849 Apr 11  2018 idmapd.conf
+lrwxrwxrwx.  1 root root       11 Apr 30  2020 [38;5;51minit.d[0m -> [38;5;27mrc.d/init.d[0m
+-rw-r--r--.  1 root root      511 Apr  1  2020 inittab
+-rw-r--r--.  1 root root      942 Jun  7  2013 inputrc
+drwxr-xr-x.  2 root root      159 Apr 30  2020 [38;5;27miproute2[0m
+-rw-r--r--.  1 root root       23 Apr  7  2020 issue
+-rw-r--r--.  1 root root       22 Apr  7  2020 issue.net
+-rw-r--r--.  1 root root      646 Mar 31  2020 krb5.conf
+drwxr-xr-x.  2 root root        6 Apr  1  2020 [38;5;27mkrb5.conf.d[0m
+-rw-r--r--.  1 root root    22882 Apr 30  2020 ld.so.cache
+-rw-r--r--.  1 root root       28 Feb 27  2013 ld.so.conf
+drwxr-xr-x.  2 root root      106 Apr 30  2020 [38;5;27mld.so.conf.d[0m
+-rw-r-----.  1 root root      191 Mar  1  2019 libaudit.conf
+drwxr-xr-x.  2 root root       35 Apr 30  2020 [38;5;27mlibnl[0m
+drwxr-xr-x.  5 root root       51 Feb 11 11:50 [38;5;27mlibreport[0m
+-rw-r--r--.  1 root root     2388 Apr 30  2020 libuser.conf
+-rw-r--r--.  1 root root       19 Apr 30  2020 locale.conf
+lrwxrwxrwx.  1 root root       25 Apr 30  2020 [38;5;51mlocaltime[0m -> ../usr/share/zoneinfo/UTC
+-rw-r--r--.  1 root root     2043 Apr 30  2020 login.defs
+-rw-r--r--.  1 root root      662 Jul 31  2013 logrotate.conf
+drwxr-xr-x.  2 root root       80 Apr 30  2020 [38;5;27mlogrotate.d[0m
+-r--r--r--.  1 root root       33 Feb 11 11:47 machine-id
+-rw-r--r--.  1 root root      111 Apr  1  2020 magic
+-rw-r--r--.  1 root root     1968 Apr 11  2018 mail.rc
+-rw-r--r--.  1 root root     5171 Oct 30  2018 man_db.conf
+-rw-r--r--.  1 root root      936 Apr  1  2020 mke2fs.conf
+drwxr-xr-x.  2 root root      120 Apr 30  2020 [38;5;27mmodprobe.d[0m
+drwxr-xr-x.  2 root root        6 Apr  7  2020 [38;5;27mmodules-load.d[0m
+-rw-r--r--.  1 root root        0 Jun  7  2013 motd
+lrwxrwxrwx.  1 root root       17 Apr 30  2020 [38;5;51mmtab[0m -> /proc/self/mounts
+-rw-r--r--.  1 root root      570 Nov 27  2019 my.cnf
+drwxr-xr-x.  2 root root       31 Apr 30  2020 [38;5;27mmy.cnf.d[0m
+-rw-r--r--.  1 root root      767 Aug  9  2019 netconfig
+drwxr-xr-x.  7 root root      134 Apr  2  2020 [38;5;27mNetworkManager[0m
+-rw-r--r--.  1 root root       58 Apr  1  2020 networks
+-rw-r--r--.  1 root root     1023 Apr  1  2020 nfs.conf
+-rw-r--r--.  1 root root     3391 Apr  1  2020 nfsmount.conf
+-rw-r--r--.  1 root root     1949 Apr 30  2020 nsswitch.conf
+-rw-r--r--.  1 root root     1938 Mar 31  2020 nsswitch.conf.bak
+drwxr-xr-x.  3 root root       36 Apr 30  2020 [38;5;27mopenldap[0m
+drwxr-xr-x.  2 root root        6 Apr 11  2018 [38;5;27mopt[0m
+lrwxrwxrwx.  1 root root       21 Apr 30  2020 [38;5;51mos-release[0m -> ../usr/lib/os-release
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 [38;5;27mpam.d[0m
+-rw-r--r--.  1 root root     1186 Apr 30  2020 passwd
+-rw-r--r--.  1 root root     1186 Apr 30  2020 passwd-
+drwxr-xr-x.  3 root root       21 Apr 30  2020 [38;5;27mpkcs11[0m
+drwxr-xr-x. 10 root root      116 Apr 30  2020 [38;5;27mpki[0m
+drwxr-xr-x.  5 root root       52 Apr 30  2020 [38;5;27mpm[0m
+drwxr-xr-x.  5 root root       72 Apr 30  2020 [38;5;27mpolkit-1[0m
+drwxr-xr-x.  2 root root        6 Jun 10  2014 [38;5;27mpopt.d[0m
+drwxr-xr-x.  2 root root      154 Apr 30  2020 [38;5;27mpostfix[0m
+drwxr-xr-x.  3 root root      123 Apr 30  2020 [38;5;27mppp[0m
+drwxr-xr-x.  2 root root       78 Apr 30  2020 [38;5;27mprelink.conf.d[0m
+-rw-r--r--.  1 root root      233 Jun  7  2013 printcap
+-rw-r--r--.  1 root root     1819 Apr  1  2020 profile
+drwxr-xr-x.  2 root root      277 Apr 30  2020 [38;5;27mprofile.d[0m
+-rw-r--r--.  1 root root     6545 Apr  1  2020 protocols
+-rw-------.  1 root root        0 Apr 30  2020 .pwd.lock
+drwxr-xr-x.  2 root root       35 Apr 30  2020 [38;5;27mpython[0m
+drwxr-xr-x.  3 root root       50 Apr 30  2020 [38;5;27mqemu-ga[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc0.d[0m -> [38;5;27mrc.d/rc0.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc1.d[0m -> [38;5;27mrc.d/rc1.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc2.d[0m -> [38;5;27mrc.d/rc2.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc3.d[0m -> [38;5;27mrc.d/rc3.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc4.d[0m -> [38;5;27mrc.d/rc4.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc5.d[0m -> [38;5;27mrc.d/rc5.d[0m
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 [38;5;51mrc6.d[0m -> [38;5;27mrc.d/rc6.d[0m
+drwxr-xr-x. 10 root root      127 Apr 30  2020 [38;5;27mrc.d[0m
+lrwxrwxrwx.  1 root root       13 Apr 30  2020 [38;5;51mrc.local[0m -> rc.d/rc.local
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 [38;5;51mredhat-release[0m -> centos-release
+-rw-r--r--.  1 root root     1787 Jun 10  2014 request-key.conf
+drwxr-xr-x.  2 root root       77 Apr 30  2020 [38;5;27mrequest-key.d[0m
+-rw-r--r--.  1 root root       50 Feb 11 11:48 resolv.conf
+-rw-r--r--.  1 root root     1634 Dec 25  2012 rpc
+drwxr-xr-x.  2 root root       25 Apr  1  2020 [38;5;27mrpm[0m
+-rw-r--r--.  1 root root      458 Apr  1  2020 rsyncd.conf
+-rw-r--r--.  1 root root     3232 Nov 27  2019 rsyslog.conf
+drwxr-xr-x.  2 root root       25 Apr  1  2020 [38;5;27mrsyslog.d[0m
+-rw-r--r--.  1 root root      966 Apr  1  2020 rwtab
+drwxr-xr-x.  2 root root       39 Apr 30  2020 [38;5;27mrwtab.d[0m
+drwxr-xr-x.  2 root root       61 Apr 30  2020 [38;5;27msamba[0m
+drwxr-xr-x.  2 root root       24 Apr 30  2020 [38;5;27msasl2[0m
+-rw-------.  1 root root      221 Apr  1  2020 securetty
+drwxr-xr-x.  6 root root     4096 Apr 30  2020 [38;5;27msecurity[0m
+drwxr-xr-x.  5 root root       81 Apr 30  2020 [38;5;27mselinux[0m
+-rw-r--r--.  1 root root   670293 Jun  7  2013 services
+-rw-r--r--.  1 root root      216 Apr  1  2020 sestatus.conf
+----------.  1 root root      663 Apr 30  2020 shadow
+----------.  1 root root      668 Apr 30  2020 shadow-
+-rw-r--r--.  1 root root       44 Apr  1  2020 shells
+drwxr-xr-x.  2 root root       62 Apr 30  2020 [38;5;27mskel[0m
+drwxr-xr-x.  3 root root       74 Feb 11 11:50 [38;5;27msmartmontools[0m
+drwxr-xr-x.  2 root root      225 Feb 11 11:47 [38;5;27mssh[0m
+drwxr-xr-x.  2 root root       19 Apr 30  2020 [38;5;27mssl[0m
+-rw-r--r--.  1 root root      212 Apr  1  2020 statetab
+drwxr-xr-x.  2 root root        6 Apr  1  2020 [38;5;27mstatetab.d[0m
+-rw-r--r--.  1 root root        0 Apr  1  2020 subgid
+-rw-r--r--.  1 root root        0 Apr  1  2020 subuid
+-rw-r-----.  1 root root     1786 Nov 27  2019 sudo.conf
+-r--r-----.  1 root root     4328 Nov 27  2019 sudoers
+drwxr-x---.  2 root root       21 Apr 30  2020 [38;5;27msudoers.d[0m
+-rw-r-----.  1 root root     3181 Nov 27  2019 sudo-ldap.conf
+drwxr-xr-x.  6 root root     4096 Feb 11 11:50 [38;5;27msysconfig[0m
+-rw-r--r--.  1 root root      449 Apr  1  2020 sysctl.conf
+drwxr-xr-x.  2 root root       28 Apr 30  2020 [38;5;27msysctl.d[0m
+drwxr-xr-x.  4 root root      151 Apr 30  2020 [38;5;27msystemd[0m
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 [38;5;51msystem-release[0m -> centos-release
+-rw-r--r--.  1 root root       23 Apr  7  2020 system-release-cpe
+-rw-------.  1 tss  tss      7046 Aug  3  2017 tcsd.conf
+drwxr-xr-x.  2 root root        6 Sep  6  2017 [38;5;27mterminfo[0m
+drwxr-xr-x.  2 root root        6 Apr  7  2020 [38;5;27mtmpfiles.d[0m
+drwxr-xr-x.  3 root root      109 Apr 30  2020 [38;5;27mtuned[0m
+drwxr-xr-x.  3 root root       54 Feb 11 11:47 [38;5;27mudev[0m
+-rw-r--r--.  1 root root      163 Apr 30  2020 .updated
+-rw-r--r--.  1 root root       37 Apr 30  2020 vconsole.conf
+-rw-r--r--.  1 root root     1982 Aug  9  2019 virc
+drwxr-xr-x.  5 root root      231 Apr 30  2020 [38;5;27mvmware-tools[0m
+drwxr-xr-x.  2 root root       33 Apr 30  2020 [38;5;27mwpa_supplicant[0m
+drwxr-xr-x.  5 root root       57 Apr 30  2020 [38;5;27mX11[0m
+drwxr-xr-x.  4 root root       38 Apr 30  2020 [38;5;27mxdg[0m
+drwxr-xr-x.  2 root root        6 Apr 11  2018 [38;5;27mxinetd.d[0m
+drwxr-xr-x.  6 root root      100 Apr 30  2020 [38;5;27myum[0m
+-rw-r--r--.  1 root root      970 Apr  2  2020 yum.conf
+drwxr-xr-x.  2 root root      220 Apr  2  2020 [38;5;27myum.repos.d[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -la /etc/ | f[Kgrep m*
+total 1076
+drwxr-xr-x. 80 root root     8192 Feb 11 11:50 .
+dr-xr-xr-x. 18 root root      255 Feb 11 11:48 ..
+-rw-r--r--.  1 root root       16 Apr 30  2020 adjti[01;31m[Km[m[Ke
+-rw-r--r--.  1 root root     1529 Apr  1  2020 aliases
+-rw-r--r--.  1 root root    12288 Feb 11 11:47 aliases.db
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 alternatives
+-rw-------.  1 root root      541 Aug  8  2019 anacrontab
+drwxr-x---.  3 root root       43 Apr 30  2020 audisp
+drwxr-x---.  3 root root       83 Feb 11 11:47 audit
+drwxr-xr-x.  2 root root       68 Apr 30  2020 bash_co[01;31m[Km[m[Kpletion.d
+-rw-r--r--.  1 root root     2853 Apr  1  2020 bashrc
+drwxr-xr-x.  2 root root        6 Apr  7  2020 binf[01;31m[Km[m[Kt.d
+-rw-r--r--.  1 root root       37 Apr  7  2020 centos-release
+-rw-r--r--.  1 root root       51 Apr  7  2020 centos-release-upstrea[01;31m[Km[m[K
+drwxr-xr-x.  2 root root        6 Aug  4  2017 chkconfig.d
+-rw-r--r--.  1 root root     1108 Aug  8  2019 chrony.conf
+-rw-r-----.  1 root chrony    481 Aug  8  2019 chrony.keys
+drwxr-xr-x.  2 root root       26 Apr 30  2020 cifs-utils
+drwxr-xr-x.  2 root root       39 Feb 11 11:50 cron.d
+drwxr-xr-x.  2 root root       42 Apr 30  2020 cron.daily
+-rw-------.  1 root root        0 Aug  8  2019 cron.deny
+drwxr-xr-x.  2 root root       22 Jun  9  2014 cron.hourly
+drwxr-xr-x.  2 root root        6 Jun  9  2014 cron.[01;31m[Km[m[Konthly
+-rw-r--r--.  1 root root      451 Jun  9  2014 crontab
+drwxr-xr-x.  2 root root        6 Jun  9  2014 cron.weekly
+-rw-------.  1 root root        0 Apr 30  2020 crypttab
+-rw-r--r--.  1 root root     1620 Apr  1  2020 csh.cshrc
+-rw-r--r--.  1 root root     1103 Apr  1  2020 csh.login
+drwxr-xr-x.  4 root root       78 Apr 30  2020 dbus-1
+drwxr-xr-x.  2 root root       44 Apr 30  2020 default
+drwxr-xr-x.  2 root root       23 Apr 30  2020 dep[01;31m[Km[m[Kod.d
+drwxr-x---.  4 root root       53 Apr 30  2020 dhcp
+-rw-r--r--.  1 root root     5090 Aug  6  2019 DIR_COLORS
+-rw-r--r--.  1 root root     5725 Aug  6  2019 DIR_COLORS.256color
+-rw-r--r--.  1 root root     4669 Aug  6  2019 DIR_COLORS.lightbgcolor
+-rw-r--r--.  1 root root     1285 Apr  1  2020 dracut.conf
+drwxr-xr-x.  2 root root       88 Apr 30  2020 dracut.conf.d
+-rw-r--r--.  1 root root      112 Nov 27  2019 e2fsck.conf
+-rw-r--r--.  1 root root        0 Apr  1  2020 environ[01;31m[Km[m[Kent
+-rw-r--r--.  1 root root     1317 Apr 11  2018 ethertypes
+-rw-r--r--.  1 root root        0 Jun  7  2013 exports
+drwxr-xr-x.  2 root root        6 Apr  1  2020 exports.d
+-rw-r--r--.  1 root root       70 Apr  1  2020 filesyste[01;31m[Km[m[Ks
+drwxr-x---.  7 root root      133 Apr 30  2020 firewalld
+-rw-r--r--.  1 root root      450 Feb 11 11:48 fstab
+-rw-r--r--.  1 root root       38 Oct 30  2018 fuse.conf
+drwxr-xr-x.  2 root root        6 Aug  2  2017 gcrypt
+drwxr-xr-x.  2 root root        6 Jul 13  2018 gnupg
+-rw-r--r--.  1 root root       94 Mar 24  2017 GREP_COLORS
+drwxr-xr-x.  4 root root       40 Apr 30  2020 groff
+-rw-r--r--.  1 root root      543 Apr 30  2020 group
+-rw-r--r--.  1 root root      536 Apr 30  2020 group-
+lrwxrwxrwx.  1 root root       22 Apr 30  2020 grub2.cfg -> ../boot/grub2/grub.cfg
+drwx------.  2 root root      182 Apr 30  2020 grub.d
+----------.  1 root root      433 Apr 30  2020 gshadow
+----------.  1 root root      426 Apr 30  2020 gshadow-
+drwxr-xr-x.  3 root root       20 Apr 30  2020 gss
+drwxr-xr-x.  2 root root       79 Apr 30  2020 gssproxy
+-rw-r--r--.  1 root root        9 Jun  7  2013 host.conf
+-rw-r--r--.  1 root root       10 Feb 11 11:47 hostna[01;31m[Km[m[Ke
+-rw-r--r--.  1 root root      188 Feb 11 11:48 hosts
+-rw-r--r--.  1 root root      370 Jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root      460 Jun  7  2013 hosts.deny
+-rw-r--r--.  1 root root     4849 Apr 11  2018 id[01;31m[Km[m[Kapd.conf
+lrwxrwxrwx.  1 root root       11 Apr 30  2020 init.d -> rc.d/init.d
+-rw-r--r--.  1 root root      511 Apr  1  2020 inittab
+-rw-r--r--.  1 root root      942 Jun  7  2013 inputrc
+drwxr-xr-x.  2 root root      159 Apr 30  2020 iproute2
+-rw-r--r--.  1 root root       23 Apr  7  2020 issue
+-rw-r--r--.  1 root root       22 Apr  7  2020 issue.net
+-rw-r--r--.  1 root root      646 Mar 31  2020 krb5.conf
+drwxr-xr-x.  2 root root        6 Apr  1  2020 krb5.conf.d
+-rw-r--r--.  1 root root    22882 Apr 30  2020 ld.so.cache
+-rw-r--r--.  1 root root       28 Feb 27  2013 ld.so.conf
+drwxr-xr-x.  2 root root      106 Apr 30  2020 ld.so.conf.d
+-rw-r-----.  1 root root      191 Mar  1  2019 libaudit.conf
+drwxr-xr-x.  2 root root       35 Apr 30  2020 libnl
+drwxr-xr-x.  5 root root       51 Feb 11 11:50 libreport
+-rw-r--r--.  1 root root     2388 Apr 30  2020 libuser.conf
+-rw-r--r--.  1 root root       19 Apr 30  2020 locale.conf
+lrwxrwxrwx.  1 root root       25 Apr 30  2020 localti[01;31m[Km[m[Ke -> ../usr/share/zoneinfo/UTC
+-rw-r--r--.  1 root root     2043 Apr 30  2020 login.defs
+-rw-r--r--.  1 root root      662 Jul 31  2013 logrotate.conf
+drwxr-xr-x.  2 root root       80 Apr 30  2020 logrotate.d
+-r--r--r--.  1 root root       33 Feb 11 11:47 [01;31m[Km[m[Kachine-id
+-rw-r--r--.  1 root root      111 Apr  1  2020 [01;31m[Km[m[Kagic
+-rw-r--r--.  1 root root     1968 Apr 11  2018 [01;31m[Km[m[Kail.rc
+-rw-r--r--.  1 root root     5171 Oct 30  2018 [01;31m[Km[m[Kan_db.conf
+-rw-r--r--.  1 root root      936 Apr  1  2020 [01;31m[Km[m[Kke2fs.conf
+drwxr-xr-x.  2 root root      120 Apr 30  2020 [01;31m[Km[m[Kodprobe.d
+drwxr-xr-x.  2 root root        6 Apr  7  2020 [01;31m[Km[m[Kodules-load.d
+-rw-r--r--.  1 root root        0 Jun  7  2013 [01;31m[Km[m[Kotd
+lrwxrwxrwx.  1 root root       17 Apr 30  2020 [01;31m[Km[m[Ktab -> /proc/self/[01;31m[Km[m[Kounts
+-rw-r--r--.  1 root root      570 Nov 27  2019 [01;31m[Km[m[Ky.cnf
+drwxr-xr-x.  2 root root       31 Apr 30  2020 [01;31m[Km[m[Ky.cnf.d
+-rw-r--r--.  1 root root      767 Aug  9  2019 netconfig
+drwxr-xr-x.  7 root root      134 Apr  2  2020 NetworkManager
+-rw-r--r--.  1 root root       58 Apr  1  2020 networks
+-rw-r--r--.  1 root root     1023 Apr  1  2020 nfs.conf
+-rw-r--r--.  1 root root     3391 Apr  1  2020 nfs[01;31m[Km[m[Kount.conf
+-rw-r--r--.  1 root root     1949 Apr 30  2020 nsswitch.conf
+-rw-r--r--.  1 root root     1938 Mar 31  2020 nsswitch.conf.bak
+drwxr-xr-x.  3 root root       36 Apr 30  2020 openldap
+drwxr-xr-x.  2 root root        6 Apr 11  2018 opt
+lrwxrwxrwx.  1 root root       21 Apr 30  2020 os-release -> ../usr/lib/os-release
+drwxr-xr-x.  2 root root     4096 Apr 30  2020 pa[01;31m[Km[m[K.d
+-rw-r--r--.  1 root root     1186 Apr 30  2020 passwd
+-rw-r--r--.  1 root root     1186 Apr 30  2020 passwd-
+drwxr-xr-x.  3 root root       21 Apr 30  2020 pkcs11
+drwxr-xr-x. 10 root root      116 Apr 30  2020 pki
+drwxr-xr-x.  5 root root       52 Apr 30  2020 p[01;31m[Km[m[K
+drwxr-xr-x.  5 root root       72 Apr 30  2020 polkit-1
+drwxr-xr-x.  2 root root        6 Jun 10  2014 popt.d
+drwxr-xr-x.  2 root root      154 Apr 30  2020 postfix
+drwxr-xr-x.  3 root root      123 Apr 30  2020 ppp
+drwxr-xr-x.  2 root root       78 Apr 30  2020 prelink.conf.d
+-rw-r--r--.  1 root root      233 Jun  7  2013 printcap
+-rw-r--r--.  1 root root     1819 Apr  1  2020 profile
+drwxr-xr-x.  2 root root      277 Apr 30  2020 profile.d
+-rw-r--r--.  1 root root     6545 Apr  1  2020 protocols
+-rw-------.  1 root root        0 Apr 30  2020 .pwd.lock
+drwxr-xr-x.  2 root root       35 Apr 30  2020 python
+drwxr-xr-x.  3 root root       50 Apr 30  2020 qe[01;31m[Km[m[Ku-ga
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc0.d -> rc.d/rc0.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc1.d -> rc.d/rc1.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc2.d -> rc.d/rc2.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc3.d -> rc.d/rc3.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc4.d -> rc.d/rc4.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc5.d -> rc.d/rc5.d
+lrwxrwxrwx.  1 root root       10 Apr 30  2020 rc6.d -> rc.d/rc6.d
+drwxr-xr-x. 10 root root      127 Apr 30  2020 rc.d
+lrwxrwxrwx.  1 root root       13 Apr 30  2020 rc.local -> rc.d/rc.local
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 redhat-release -> centos-release
+-rw-r--r--.  1 root root     1787 Jun 10  2014 request-key.conf
+drwxr-xr-x.  2 root root       77 Apr 30  2020 request-key.d
+-rw-r--r--.  1 root root       50 Feb 11 11:48 resolv.conf
+-rw-r--r--.  1 root root     1634 Dec 25  2012 rpc
+drwxr-xr-x.  2 root root       25 Apr  1  2020 rp[01;31m[Km[m[K
+-rw-r--r--.  1 root root      458 Apr  1  2020 rsyncd.conf
+-rw-r--r--.  1 root root     3232 Nov 27  2019 rsyslog.conf
+drwxr-xr-x.  2 root root       25 Apr  1  2020 rsyslog.d
+-rw-r--r--.  1 root root      966 Apr  1  2020 rwtab
+drwxr-xr-x.  2 root root       39 Apr 30  2020 rwtab.d
+drwxr-xr-x.  2 root root       61 Apr 30  2020 sa[01;31m[Km[m[Kba
+drwxr-xr-x.  2 root root       24 Apr 30  2020 sasl2
+-rw-------.  1 root root      221 Apr  1  2020 securetty
+drwxr-xr-x.  6 root root     4096 Apr 30  2020 security
+drwxr-xr-x.  5 root root       81 Apr 30  2020 selinux
+-rw-r--r--.  1 root root   670293 Jun  7  2013 services
+-rw-r--r--.  1 root root      216 Apr  1  2020 sestatus.conf
+----------.  1 root root      663 Apr 30  2020 shadow
+----------.  1 root root      668 Apr 30  2020 shadow-
+-rw-r--r--.  1 root root       44 Apr  1  2020 shells
+drwxr-xr-x.  2 root root       62 Apr 30  2020 skel
+drwxr-xr-x.  3 root root       74 Feb 11 11:50 s[01;31m[Km[m[Kart[01;31m[Km[m[Kontools
+drwxr-xr-x.  2 root root      225 Feb 11 11:47 ssh
+drwxr-xr-x.  2 root root       19 Apr 30  2020 ssl
+-rw-r--r--.  1 root root      212 Apr  1  2020 statetab
+drwxr-xr-x.  2 root root        6 Apr  1  2020 statetab.d
+-rw-r--r--.  1 root root        0 Apr  1  2020 subgid
+-rw-r--r--.  1 root root        0 Apr  1  2020 subuid
+-rw-r-----.  1 root root     1786 Nov 27  2019 sudo.conf
+-r--r-----.  1 root root     4328 Nov 27  2019 sudoers
+drwxr-x---.  2 root root       21 Apr 30  2020 sudoers.d
+-rw-r-----.  1 root root     3181 Nov 27  2019 sudo-ldap.conf
+drwxr-xr-x.  6 root root     4096 Feb 11 11:50 sysconfig
+-rw-r--r--.  1 root root      449 Apr  1  2020 sysctl.conf
+drwxr-xr-x.  2 root root       28 Apr 30  2020 sysctl.d
+drwxr-xr-x.  4 root root      151 Apr 30  2020 syste[01;31m[Km[m[Kd
+lrwxrwxrwx.  1 root root       14 Apr 30  2020 syste[01;31m[Km[m[K-release -> centos-release
+-rw-r--r--.  1 root root       23 Apr  7  2020 syste[01;31m[Km[m[K-release-cpe
+-rw-------.  1 tss  tss      7046 Aug  3  2017 tcsd.conf
+drwxr-xr-x.  2 root root        6 Sep  6  2017 ter[01;31m[Km[m[Kinfo
+drwxr-xr-x.  2 root root        6 Apr  7  2020 t[01;31m[Km[m[Kpfiles.d
+drwxr-xr-x.  3 root root      109 Apr 30  2020 tuned
+drwxr-xr-x.  3 root root       54 Feb 11 11:47 udev
+-rw-r--r--.  1 root root      163 Apr 30  2020 .updated
+-rw-r--r--.  1 root root       37 Apr 30  2020 vconsole.conf
+-rw-r--r--.  1 root root     1982 Aug  9  2019 virc
+drwxr-xr-x.  5 root root      231 Apr 30  2020 v[01;31m[Km[m[Kware-tools
+drwxr-xr-x.  2 root root       33 Apr 30  2020 wpa_supplicant
+drwxr-xr-x.  5 root root       57 Apr 30  2020 X11
+drwxr-xr-x.  4 root root       38 Apr 30  2020 xdg
+drwxr-xr-x.  2 root root        6 Apr 11  2018 xinetd.d
+drwxr-xr-x.  6 root root      100 Apr 30  2020 yu[01;31m[Km[m[K
+-rw-r--r--.  1 root root      970 Apr  2  2020 yu[01;31m[Km[m[K.conf
+drwxr-xr-x.  2 root root      220 Apr  2  2020 yu[01;31m[Km[m[K.repos.d
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -la /etc/ | grep m*[Kgrep mdadm.conf \
+> ^C
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ grep mdadm.conf \[K/
+grep: /: Is a directory
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ grep mdadm.conf /[K\[K
+^C
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ grep mdadm.conf [Kgrep mdadm.conf [Kdf
+Filesystem     1K-blocks    Used Available Use% Mounted on
+devtmpfs          499868       0    499868   0% /dev
+tmpfs             507384       0    507384   0% /dev/shm
+tmpfs             507384    6832    500552   2% /run
+tmpfs             507384       0    507384   0% /sys/fs/cgroup
+/dev/sda1       41921540 3597472  38324068   9% /
+tmpfs             101480       0    101480   0% /run/user/1000
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ df[K[Kgrep mdadm.conf /\ls -la /etc/ | grep m*[K[4P[C[C[C[C[C[C| grep mdadmecho "DEVICE partitions" > /etc/mdadm/mdadm.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[3Psudo mdadm --detail --scan --verbose /dev/md0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[29Pcat /proc/mdstatsudo mdadm -D /dev/md0[6@-detail[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pmdadm --manage --helphelp[Ksudo mdadm --create --verbose /dev/md0 --level=10 --raid-devices=5 /dev/sd{b,c,d,e,f}[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C4[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[20Pl1 n[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2@ 1 n [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C5[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@u[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13Pzero-superblock --force[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[22Psudo lshw -short | grep diskfdisk -l | grep -i[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Ksudo fdisk -l | grep -i disk
+[01;31m[KDisk[m[K /dev/sda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+[01;31m[KDisk[m[K label type: dos
+[01;31m[KDisk[m[K identifier: 0x0009ef1a
+[01;31m[KDisk[m[K /dev/sdb: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdc: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdd: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sde: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdf: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/md0: 125 MB, 125829120 bytes, 245760 sectors
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mo[K[Kfs[K[Kmkfs.ext4 /dev/md0
+mke2fs 1.42.9 (28-Dec-2013)
+mkfs.ext4: Permission denied while trying to determine filesystem size
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mkfs.ext4 /dev/md0[1@s[1@u[1@d[1@o[1@ 
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=512 blocks, Stripe width=2560 blocks
+30720 inodes, 122880 blocks
+6144 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=33685504
+15 block groups
+8192 blocks per group, 8192 fragments per group
+2048 inodes per group
+Superblock backups stored on blocks: 
+	8193, 24577, 40961, 57345, 73729
+
+Allocating group tables:  0/15     done                            
+Writing inode tables:  0/15     done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information:  0/15     done
+
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mkfs.ext4 /dev/md0[Kmount /dev/md0 /mnt
+mount: only root can do that
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ mount /dev/md0 /mnt[1@s[1@u[1@d[1@o[1@ 
+
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ 
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cp /var/log/* /mnt
+cp: omitting directory ‘/var/log/anaconda’
+cp: omitting directory ‘/var/log/audit’
+cp: cannot open ‘/var/log/btmp’ for reading: Permission denied
+cp: omitting directory ‘/var/log/chrony’
+cp: cannot open ‘/var/log/cron’ for reading: Permission denied
+cp: cannot create regular file ‘/mnt/dmesg’: Permission denied
+cp: cannot create regular file ‘/mnt/grubby_prune_debug’: Permission denied
+cp: cannot create regular file ‘/mnt/lastlog’: Permission denied
+cp: cannot open ‘/var/log/maillog’ for reading: Permission denied
+cp: cannot open ‘/var/log/messages’ for reading: Permission denied
+cp: omitting directory ‘/var/log/qemu-ga’
+cp: omitting directory ‘/var/log/rhsm’
+cp: omitting directory ‘/var/log/samba’
+cp: cannot open ‘/var/log/secure’ for reading: Permission denied
+cp: cannot open ‘/var/log/spooler’ for reading: Permission denied
+cp: cannot open ‘/var/log/tallylog’ for reading: Permission denied
+cp: omitting directory ‘/var/log/tuned’
+cp: cannot create regular file ‘/mnt/wtmp’: Permission denied
+cp: cannot open ‘/var/log/yum.log’ for reading: Permission denied
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cp /var/log/* /mnt[1@s[1@u[1@d[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P /mnt[1P/mntl/mnts/mnt /mnt
+[0m[38;5;27mlost+found[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /mnt[11@cp /var/log/*[C[C[C[C[C[1@s[1@u[1@d[1@o[1@ 
+cp: omitting directory ‘/var/log/anaconda’
+cp: omitting directory ‘/var/log/audit’
+cp: omitting directory ‘/var/log/chrony’
+cp: omitting directory ‘/var/log/qemu-ga’
+cp: omitting directory ‘/var/log/rhsm’
+cp: omitting directory ‘/var/log/samba’
+cp: omitting directory ‘/var/log/tuned’
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo cp /var/log/* /mntls /mnt[K
+btmp  cron  dmesg  grubby_prune_debug  lastlog  [0m[38;5;27mlost+found[0m  maillog  messages  secure  spooler  tallylog  wtmp  yum.log
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /mnt[Kls /mnt[16@sudo cp /var/log/*[C[C[C[C[Cls /mnt[K[11@cp /var/log/*[C[C[C[C[C[6@sudo mount /dev/md0[C[C[C[C[C[C[C[C[C[C[1@u[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P /mnt[1P/mnt
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /mnt
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls /mnt[9@sudo umount[C[C[C[C[C[9Pls[C[C[C[C[C[16@sudo cp /var/log/*[C[C[C[C[Cls /mnt[K[11@cp /var/log/*[C[C[C[C[C[6@sudo mount /dev/md0[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo mkfs.ext4 /dev/md0[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo fdisk -l | grep -i disk[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kgrep mdadm.conf /\ls -la /etc/ | grep m*[K[4P[C[C[C[C[C[C| grep mdadmecho "DEVICE partitions" > /etc/mdadm/mdadm.conf
+-bash: /etc/mdadm/mdadm.conf: No such file or directory
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ echo "DEVICE partitions" > /etc/mdadm/mdadm.conf[1@s[1@u[1@d[1@o[1@ 
+-bash: /etc/mdadm/mdadm.conf: No such file or directory
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mkdir -d /etc/mdadm
+mkdir: invalid option -- 'd'
+Try 'mkdir --help' for more information.
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mkdir -d /etc/mdadm[C[C[1P[1P /etc/mdadm[1P/etc/mdadm
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo mkdir /etc/mdadm-d /etc/mdadmecho "DEVICE partitions" > /etc/mdadm/mdadm.conf
+-bash: /etc/mdadm/mdadm.conf: Permission denied
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ cd
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -d /etc
+[0m[38;5;27m/etc[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -d /etc/
+[0m[38;5;27m/etc/[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -d /etc/m
+machine-id      mail.rc         mdadm/          modprobe.d/     motd            my.cnf          
+magic           man_db.conf     mke2fs.conf     modules-load.d/ mtab            my.cnf.d/       
+[vagrant@otuslinux ~]$ ls -d /etc/mdadm/
+[0m[38;5;27m/etc/mdadm/[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -d /etc/mdadm/[C[C[C[1P /etc/mdadm/[1P /etc/mdadm/l /etc/mdadm/
+ls: cannot access l: No such file or directory
+/etc/mdadm/:
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls l /etc/mdadm/[1@-[1@d
+drwxr-xr-x. 2 root root 6 Feb 11 13:53 [0m[38;5;27m/etc/mdadm/[0m
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ ls -dl /etc/mdadm/[2P[C[C[C[C[C[C[C[C[C[C[C[C[C[1@-d[C[C[C[C[C[C[C[C[C[C[C[C[K[Kcd[Ksudo echo "DEVICE partitions" > /etc/mdadm/mdadm.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P
+-bash: /etc/mdadm/mdadm.conf: Permission denied
+]0;vagrant@otuslinux:~[vagrant@otuslinux ~]$ sudo su
+]0;root@otuslinux:/home/vagrant[?1034h[root@otuslinux vagrant]# cho "DEVICE partitions" > /etc/mdadm/mdadm.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# mdadm --detail --scan --verbose | awk '/ARRAY/ {print}' >>
+bash: syntax error near unexpected token `newline'
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# /etc/mdadm/mdadm.conf
+bash: /etc/mdadm/mdadm.conf: Permission denied
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# /etc/mdadm/mdadm.conf[K/etc/mdadm/mdadm.confmdadm --detail --scan --verbose | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.conf 
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# car[Kt [77@mdadm --detail --scan --verbose | awk '/ARRAY/ {print}' >> /etc/mdadm/mdadm.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat [K/etc//[Kmdadm/mdadm.conf 
+DEVICE partitions
+ARRAY /dev/md0 level=raid10 num-devices=5 metadata=1.2 name=otuslinux:0 UUID=6e12da5c:d063f7f1:b98f197b:c399476e
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# авшыл [K [K[K[K[K[K[Kавшыл [K[K[K[K[K[Kfdisl[Kk -l md0
+fdisk: cannot open md0: No such file or directory
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# fdisk -l md0/md0dmd0emd0vmd0/md0
+
+Disk /dev/md0: 125 MB, 125829120 bytes, 245760 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 524288 bytes / 2621440 bytes
+
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# fdisk -l /dev/md0[K[K[K[K[K[K[K[K| gri[Kep disk
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# fdisk -l | grep disk[C-diskidisk disk
+[01;31m[KDisk[m[K /dev/sda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+[01;31m[KDisk[m[K label type: dos
+[01;31m[KDisk[m[K identifier: 0x0009ef1a
+[01;31m[KDisk[m[K /dev/sdb: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdc: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdd: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sde: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/sdf: 52 MB, 52428800 bytes, 102400 sectors
+[01;31m[KDisk[m[K /dev/md0: 125 MB, 125829120 bytes, 245760 sectors
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# reboot
+Connection to 127.0.0.1 closed by remote host.
+[?2004h]0;admuser@vm1: ~/otus-dz3[01;32madmuser@vm1[00m:[01;34m~/otus-dz3[00m$ vagrant ssh[Kvagrant ssh[7Pexitvagrant ssh
+[?2004lLast login: Sun Feb 11 14:03:01 2024
+]0;vagrant@otuslinux:~[?1034h[vagrant@otuslinux ~]$ sudo su
+]0;root@otuslinux:/home/vagrant[?1034h[root@otuslinux vagrant]# mdadm /dewv/[K[K[Kv/md0 --faild[K /dev/sdd
+mdadm: set /dev/sdd faulty in /dev/md0
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# cat /proc/mdstat
+Personalities : [raid10] 
+md0 : active raid10 sde[3] sdf[4] sdc[1] sdb[0] sdd[2](F)
+      122880 blocks super 1.2 512K chunks 2 near-copies [5/4] [UU_UU]
+      
+unused devices: <none>
+]0;root@otuslinux:/home/vagrant[root@otuslinux vagrant]# mdadm -D /dev/md0
+/dev/md0:
+           Version : 1.2
+     Creation Time : Sun Feb 11 13:04:28 2024
+        Raid Level : raid10
+        Array Size : 122880 (120.00 MiB 125.83 MB)
+     Used Dev Size : 49152 (48.00 MiB 50.33 MB)
+      Raid Devices : 5
+     Total Devices : 5
+       Persistence : Superblock is persistent
+
+       Update Time : Sun Feb 11 14:11:08 2024
+             State : clean, degraded 
+    Active Devices : 4
+   Working Devices : 4
+    Failed Devices : 1
+     Spare Devices : 0
+
+            Layout : near=2
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 6e12da5c:d063f7f1:b98f197b:c399476e
+            Events : 19
+
+    Number   Major   Minor   RaidDevice State
+       0       8       16        0      active sync   /dev/sdb
+       1       8       32        1      active sync   /dev/sdc
+       -       0        0        2      removed
+       3       8       64        3      a
